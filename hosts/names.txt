@@ -1,0 +1,43 @@
+# Machine names, one per line.
+#
+# A machine gets the first name here that no host in flake.nix is using, picked
+# at random rather than in order so a rebuilt cluster does not reuse the same
+# names in the same sequence and confuse anyone reading old notes.
+#
+# Rules these follow, because the cluster enforces them elsewhere:
+#   - lowercase letters, digits and dashes, 32 characters or fewer.
+#     kubelet-csr-approver refuses a certificate for anything else, and a node
+#     whose name does not match will join and then quietly fail every
+#     `kubectl logs` against it.
+#   - no two names starting with the same letter, so tab completion and a
+#     glance at `kubectl get nodes` stay unambiguous.
+#   - two syllables at most. These get typed a lot.
+#
+# Names already spoken for are not removed from this file -- flake.nix is the
+# record of what is in use, and this is only the pool to draw from.
+
+archer
+boone
+calder
+dalton
+ellis
+fletcher
+gable
+harlow
+ives
+jasper
+keaton
+larkin
+mercer
+nolan
+orson
+pierce
+quinn
+ridley
+sawyer
+tanner
+usher
+vaughn
+walden
+yates
+zane

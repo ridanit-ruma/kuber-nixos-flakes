@@ -1,0 +1,17 @@
+# Public keys that may log in to any machine in this cluster.
+#
+# Public halves only -- these are not secrets, and keeping them in the
+# repo is what makes a new node reachable the moment it is built rather
+# than after someone remembers to run ssh-copy-id against it.
+#
+# Add a line to grant access; remove one to revoke it everywhere at the
+# next rebuild.
+# The control plane, for nixdeploy and node-to-node work
+# iPhone Termius
+#
+# ── Replace the line below with your own public key before you build. ──
+# A machine built with no usable key here is a machine you cannot log in to,
+# and `users.users.<name>.openssh.authorizedKeys` is the only way in: password
+# authentication is off in modules/users.nix.
+
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIREPLACE+THIS+WITH+YOUR+OWN+PUBLIC+KEY you@example.com
