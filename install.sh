@@ -246,8 +246,7 @@ CONTROL_PLANE=$(cluster_attr \
 # Both subnets are stated once, as the first address of each. `192.168.1.100`
 # and a /24 make the prefix `192.168.1`, which is what the questions below
 # offer and validate against.
-LAN_PREFIX=$(cluster_attr 'builtins.head (builtins.attrValues c.nodes)' >/dev/null 2>&1; \
-  cluster_attr 'let n = builtins.head (builtins.attrValues c.nodes); in builtins.concatStringsSep "." (lib.take 3 (lib.splitString "." n.lan))')
+LAN_PREFIX=$(cluster_attr 'let n = builtins.head (builtins.attrValues c.nodes); in builtins.concatStringsSep "." (lib.take 3 (lib.splitString "." n.lan))')
 FAB_PREFIX=$(cluster_attr 'let n = builtins.head (builtins.attrValues c.nodes); in builtins.concatStringsSep "." (lib.take 3 (lib.splitString "." n.fabric))')
 
 [ -n "$LAN_IF" ] && [ -n "$FAB_IF" ] && [ -n "$LAN_PREFIX" ] && [ -n "$FAB_PREFIX" ] \
